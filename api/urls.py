@@ -5,9 +5,9 @@ from .api_views import *
 
 router = DefaultRouter()
 router.register(r'members', MemberViewSet, 'member')
-router.register(r'venues', MemberViewSet, 'venue')
-router.register(r'devices', MemberViewSet, 'device')
-router.register(r'users', MemberViewSet, 'user')
+router.register(r'venues', VenueViewSet, 'venue')
+router.register(r'devices', DeviceViewSet, 'device')
+router.register(r'users', UserViewSet, 'user')
 
 urlpatterns = [
     path('api/',include(router.urls)),
