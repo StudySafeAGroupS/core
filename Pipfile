@@ -6,9 +6,9 @@ name = "pypi"
 [packages]
 django = "~=4.0"
 djangorestframework = "*"
+gunicorn = "*"
 pyyaml = "*"
 uritemplate = "*"
-gunicorn = "*"
 
 [dev-packages]
 

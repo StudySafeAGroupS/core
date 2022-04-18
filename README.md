@@ -26,8 +26,18 @@ gh repo clone StudySafeAGroupS/core
 
 ## Heroku
 ```sh
+mkdir heroku
+cd heroku
 heroku login
 heroku create
+heroku config:set DISABLE_COLLECTSTATIC=1 -a {Heroku_app_name}
 git init
 heroku git:remote -a {Heroku_app_name}
+git fetch --all
+git pull --all
+```
+
+settings.py
+```python3
+ALLOWED_HOSTS = ['{Heroku_app_name}','localhost', '127.0.0.1', '[::1]']
 ```
