@@ -26,9 +26,11 @@ gh repo clone StudySafeAGroupS/core
 
 ## Heroku
 ```sh
+mkdir heroku
+cd heroku
 heroku login
 heroku create
-heroku config:set DISABLE_COLLECTSTATIC=1
+heroku config:set DISABLE_COLLECTSTATIC=1 -a {Heroku_app_name}
 git init
 heroku git:remote -a {Heroku_app_name}
 ```
