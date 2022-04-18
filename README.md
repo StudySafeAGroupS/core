@@ -33,4 +33,5 @@ heroku create
 heroku config:set DISABLE_COLLECTSTATIC=1 -a {Heroku_app_name}
 git init
 heroku git:remote -a {Heroku_app_name}
+git fetch --all
 ```
