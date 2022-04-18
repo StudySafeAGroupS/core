@@ -37,7 +37,7 @@ git fetch --all
 git pull --all
 ```
 
-settings.py
+### settings.py
 ```python3
 ALLOWED_HOSTS = ['{Heroku_app_name}','localhost', '127.0.0.1', '[::1]']
 ```
