@@ -1,12 +1,22 @@
 openapi: 3.0.2
 info:
-  title: ''
-  version: ''
+  title: 'StudySafe Core API'
+  version: '1.0'
+  description: 'An API to create, delete, modify and view students/venues/entry&exit/users records'
+tags:
+ - name: member
+   description: 'Operation on Students list'
+ - name: venue
+   description: 'Operation on Venues list'
+ - name: device
+   description: 'Operation on entry/exit records'
+ - name: user
+   description: 'Operation on list of StudySafe users'
 paths:
   /api/members/:
     get:
       operationId: listMembers
-      description: ''
+      description: 'get the list of all members'
       parameters: []
       responses:
         '200':
@@ -16,12 +26,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Member'
-          description: ''
+          description: 'an array of all students'
       tags:
-      - api
+      - member
     post:
       operationId: createMember
-      description: ''
+      description: 'create a new student'
       parameters: []
       requestBody:
         content:
@@ -40,13 +50,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Member'
-          description: ''
+          description: 'respond with the input student info'
       tags:
-      - api
+      - member
   /api/members/{id}/:
     get:
       operationId: retrieveMember
-      description: ''
+      description: 'retrive student record'
       parameters:
       - name: id
         in: path
@@ -60,12 +70,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Member'
-          description: ''
+          description: 'the student info'
       tags:
-      - api
+      - member
     put:
       operationId: updateMember
-      description: ''
+      description: 'update the student record'
       parameters:
       - name: id
         in: path
@@ -90,12 +100,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Member'
-          description: ''
+          description: 'the updated info'
       tags:
-      - api
+      - member
     patch:
       operationId: partialUpdateMember
-      description: ''
+      description: 'partially update the student'
       parameters:
       - name: id
         in: path
@@ -120,12 +130,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Member'
-          description: ''
+          description: 'the updated info'
       tags:
-      - api
+      - member
     delete:
       operationId: destroyMember
-      description: ''
+      description: 'delete the student'
       parameters:
       - name: id
         in: path
@@ -135,13 +145,13 @@ paths:
           type: string
       responses:
         '204':
-          description: ''
+          description: 'response code only'
       tags:
-      - api
+      - member
   /api/venues/:
     get:
       operationId: listVenues
-      description: ''
+      description: 'retreive a list of all venue'
       parameters: []
       responses:
         '200':
@@ -151,12 +161,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Venue'
-          description: ''
+          description: 'list of all venues'
       tags:
-      - api
+      - venue
     post:
       operationId: createVenue
-      description: ''
+      description: 'create a venue'
       parameters: []
       requestBody:
         content:
@@ -175,13 +185,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Venue'
-          description: ''
+          description: 'the venue created'
       tags:
-      - api
+      - venue
   /api/venues/{id}/:
     get:
       operationId: retrieveVenue
-      description: ''
+      description: 'retrive a venue'
       parameters:
       - name: id
         in: path
@@ -195,12 +205,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Venue'
-          description: ''
+          description: 'the request venue details'
       tags:
-      - api
+      - venue
     put:
       operationId: updateVenue
-      description: ''
+      description: 'update a venue'
       parameters:
       - name: id
         in: path
@@ -225,12 +235,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Venue'
-          description: ''
+          description: 'updated venue details'
       tags:
-      - api
+      - venue
     patch:
       operationId: partialUpdateVenue
-      description: ''
+      description: 'partially update a venue'
       parameters:
       - name: id
         in: path
@@ -255,12 +265,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Venue'
-          description: ''
+          description: 'updated venue details'
       tags:
-      - api
+      - venue
     delete:
       operationId: destroyVenue
-      description: ''
+      description: 'remove a venue'
       parameters:
       - name: id
         in: path
@@ -270,13 +280,13 @@ paths:
           type: string
       responses:
         '204':
-          description: ''
+          description: 'only code for confirmation'
       tags:
-      - api
+      - venue
   /api/devices/:
     get:
       operationId: listDevices
-      description: ''
+      description: 'retrieve a list of entry/exit records'
       parameters: []
       responses:
         '200':
@@ -286,12 +296,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Device'
-          description: ''
+          description: 'list of entry/exit records'
       tags:
-      - api
+      - device
     post:
       operationId: createDevice
-      description: ''
+      description: 'create a new enty/exit record'
       parameters: []
       requestBody:
         content:
@@ -310,13 +320,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Device'
-          description: ''
+          description: 'detail of the created record'
       tags:
-      - api
+      - device
   /api/devices/{id}/:
     get:
       operationId: retrieveDevice
-      description: ''
+      description: 'retrive detail of a record'
       parameters:
       - name: id
         in: path
@@ -330,12 +340,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Device'
-          description: ''
+          description: 'detail of the requested record'
       tags:
-      - api
+      - device
     put:
       operationId: updateDevice
-      description: ''
+      description: 'update a record'
       parameters:
       - name: id
         in: path
@@ -360,12 +370,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Device'
-          description: ''
+          description: 'details of the updated record'
       tags:
-      - api
+      - device
     patch:
       operationId: partialUpdateDevice
-      description: ''
+      description: 'partially update a reocrd'
       parameters:
       - name: id
         in: path
@@ -390,12 +400,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Device'
-          description: ''
+          description: 'details of the updated record'
       tags:
-      - api
+      - device
     delete:
       operationId: destroyDevice
-      description: ''
+      description: 'remove a record'
       parameters:
       - name: id
         in: path
@@ -405,13 +415,13 @@ paths:
           type: string
       responses:
         '204':
-          description: ''
+          description: 'code only for confirmation'
       tags:
-      - api
+      - device
   /api/users/:
     get:
       operationId: listUsers
-      description: ''
+      description: 'retrive a list of StudySafe users'
       parameters: []
       responses:
         '200':
@@ -421,12 +431,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/User'
-          description: ''
+          description: 'list of StudySafe users'
       tags:
-      - api
+      - user
     post:
       operationId: createUser
-      description: ''
+      description: 'create a new user'
       parameters: []
       requestBody:
         content:
@@ -445,13 +455,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-          description: ''
+          description: 'details of the created user'
       tags:
-      - api
+      - user
   /api/users/{id}/:
     get:
       operationId: retrieveUser
-      description: ''
+      description: 'retireve detail of a user'
       parameters:
       - name: id
         in: path
@@ -465,12 +475,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-          description: ''
+          description: 'details of the requested user'
       tags:
-      - api
+      - user
     put:
       operationId: updateUser
-      description: ''
+      description: 'update a user'
       parameters:
       - name: id
         in: path
@@ -495,12 +505,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-          description: ''
+          description: 'detail of the updated user'
       tags:
-      - api
+      - user
     patch:
       operationId: partialUpdateUser
-      description: ''
+      description: 'partially update a user'
       parameters:
       - name: id
         in: path
@@ -525,12 +535,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-          description: ''
+          description: 'detail of the updated user'
       tags:
-      - api
+      - user
     delete:
       operationId: destroyUser
-      description: ''
+      description: 'remove a user'
       parameters:
       - name: id
         in: path
@@ -540,9 +550,9 @@ paths:
           type: string
       responses:
         '204':
-          description: ''
+          description: 'code only for confirmation'
       tags:
-      - api
+      - user
 components:
   schemas:
     Member:
