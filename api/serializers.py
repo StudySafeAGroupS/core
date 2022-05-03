@@ -6,7 +6,6 @@ from .models import *
 class MemberSerializer (serializers.Serializer):
     hku_id = serializers.CharField(max_length=10)
     name = serializers.CharField(max_length=150)
-    is_close_contact = serializers.BooleanField()
     class Meta:
         model = Member
         fields='__all__'
@@ -16,7 +15,6 @@ class VenueSerializer (serializers.Serializer):
     location = serializers.CharField(max_length=150)
     venue_type = serializers.CharField(max_length=2)
     capacity = serializers.IntegerField()
-    is_poorly_ventilated_area = serializers.BooleanField()
     class Meta:
         model = Venue
         fields='__all__'
