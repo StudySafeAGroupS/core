@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+  <head>
+    <style type="text/css">
+    .sidenav {
+      height:100%;
+      width:160px;
+      position: fixed;
+      z-index:1;
+      top:0;
+      left:0;
+      background-color:#111;
+      overflow-x: :hidden;
+      padding-top:20px;
+    }
+ 
+    .sidenav a {
+      padding:6px 8px 6px 16px;
+      text-decoration: none;
+      font-size:25px;
+      color: #818181;
+      display:block;
+    }
+ 
+    .sidenav a:hover{
+      color:#f1f1f1;
+    } 
+ 
+    .main{
+      margin-left:160px;
+      padding: 0px 10px;
+    }
+ 
+  </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}StudySafe Trace{% endblock %}</title>
+    {% block csstheme %}
+      <style>
+        :root {
+          --header-bg-color: darkgrey;
+          --header-border-color: grey;
+          --block-bg-color: lightgrey;
+          --block-border-color: grey;
+        }
+      </style>
+    {% endblock %}
+    <style>
+      body {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      header {
+        background-color: var(--header-bg-color);
+        border: 0.1em solid var(--header-border-color);
+        box-shadow: 0.1em 0.1em 0.2em var(--block-border-color);
+        width: 100%;
+        max-width: 40em;
+      }
+      h1 {
+        font-size: 1.7em;
+        text-align: center;
+        margin: 0.3em;
+      }
+      div.block {
+        background-color: var(--block-bg-color);
+        border: 0.1em solid var(--block-border-color);
+        box-shadow: 0.1em 0.1em 0.2em var(--block-border-color);
+        margin: 0.3em;
+        padding: 0.5em;
+      }
+      div.block .label {
+        font-size: 0.9em;
+        font-weight: bold;
+      }
+      div.block .data {
+        padding: 0.3em 0;
+        font-size: 1.2em;
+      }
+      div.block .data ul {
+        margin: 0;
+        padding: 0 1.5em;
+      }
+      .main-content {
+        padding: 1em;
+        width: 100%;
+        max-width: 30em;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: stretch;
+      }
+      .info {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: stretch;
+      }
+      .info .block {
+        flex-basis: 50%;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="sidenav">
+      <a href="/base">Base</a>
+      <a href="/contacts">Contacts</a>
+      <a href="/venues">Venues</a>
+    </div>
+ 
+    {% block header %}
+    <header>
+      <h1>CONTACTS</h1>
+    </header>
+    {% endblock %}
+    <div class="main-content">
+      <div class="info">
+        <div class="block">
+          <div class="label">Subject:</div>
+          <div class="data">{{ subject }}</div>
+        </div>
+        <div class="block">
+          <div class="label">Date of onset/diagnosis:</div>
+          <div class="data">{{ date }}</div>
+        </div>
+      </div>
+      {% block details %}
+      {% endblock %}
+      
+    </div>
+    </body>
+
+  
+</html>

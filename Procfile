@@ -1,1 +1,1 @@
-web: gunicorn StudySafe.wsgi
+web: gunicorn studysafe.wsgi

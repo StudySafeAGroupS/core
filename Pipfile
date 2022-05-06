@@ -5,13 +5,11 @@ name = "pypi"
 
 [packages]
 django = "~=4.0"
-djangorestframework = "*"
+requests = "*"
 gunicorn = "*"
-pyyaml = "*"
-uritemplate = "*"
-psycopg2-binary = "*"
+whitenoise = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.9"
+python_version = "3.10"
